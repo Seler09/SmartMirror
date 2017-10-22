@@ -44,7 +44,7 @@ body{
 
 #currentDayCell{
     text-align: center;
-
+    font-weight: 700;
     color: black;
     background-color: white;
 

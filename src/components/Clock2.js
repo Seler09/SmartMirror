@@ -7,7 +7,7 @@ class Clock2 extends React.Component{
 
 
        constructor(){
-           super()
+           super();
             this.state={
                time: new Date()
             }

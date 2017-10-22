@@ -3,6 +3,7 @@ import './App.css';
 import Calendar from './components/Calendar';
 import Clock from './components/Clock';
 import Clock2 from "./components/Clock2";
+import Weather from "./components/Weather";
 
 class App extends Component {
     constructor() {
@@ -30,20 +31,21 @@ class App extends Component {
 
 
 
-  render() {
-    return (
-        <div>
-            <input type="text" id="one" onKeyPress={this.handleKeyPress} />
-            {this.state.showClock && < Clock/>}
-            {this.state.showCalendar && < Calendar/>}
-
+    render() {
+        return (
             <div>
-                <Clock/>
-                <Calendar/>
+                <input type="text" id="one" onKeyPress={this.handleKeyPress} />
+                {this.state.showClock && < Clock/>}
+                {this.state.showCalendar && < Calendar/>}
+
+                <div>
+                    <Clock/>
+                    <Calendar/>
+                    <Weather/>
+                </div>
             </div>
-        </div>
-    );
-  }
+        );
+    }
 }
 
 export default App;

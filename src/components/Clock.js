@@ -31,10 +31,15 @@ class Clock extends React.Component{
             clock.textContent = clockTime;
             clockSeconds.textContent = clockTimeSeconds;
 
+            if(hours==="59"&&minutes==="59"&&seconds==="59"){
+
+            }
+
         }
         setInterval(function () {
             timer();
         },1000);
+
 
     }
     render(){

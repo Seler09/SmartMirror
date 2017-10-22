@@ -4,25 +4,28 @@ import '../css/CalendarStyle.css';
 
 class Calendar extends React.Component {
        componentDidMount(){
-        let date = new Date();
-        let monthName = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-        let month = date.getMonth();
-        let year = date.getFullYear();
-        var currentDayNumber = date.getDate(); //sprawdzic pisownie ang
 
-        let firstDate = monthName[month] + " " + -1 + " " + year; // October 1 2017
 
-        let tmp = new Date(firstDate).toDateString(); // It will show e.g. Sunday October 01 2017
-        let firstDayName = tmp.substring(0,3); // getting name (first three leters) of first day of the month
-        let dayName = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+            let date = new Date();
+            let monthName = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            let month = date.getMonth();
+            let year = date.getFullYear();
+            var currentDayNumber = date.getDate(); //sprawdzic pisownie ang
 
-        let dayNumber = dayName.indexOf(firstDayName); //1
-        let days = new Date(year, month+1, 0).getDate(); //30
+            let firstDate = monthName[month] + " " + -1 + " " + year; // October 1 2017
 
-        let calendar = getCalendar(dayNumber, days, currentDayNumber);
+            let tmp = new Date(firstDate).toDateString(); // It will show e.g. Sunday October 01 2017
+            let firstDayName = tmp.substring(0,3); // getting name (first three leters) of first day of the month
+            let dayName = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
-        document.getElementById("calendar-month-year").innerHTML = monthName[month] + " " + year;
-        document.getElementById("calendar-dates").appendChild(calendar);
+            let dayNumber = dayName.indexOf(firstDayName); //1
+            let days = new Date(year, month+1, 0).getDate(); //30
+
+            let calendar = getCalendar(dayNumber, days, currentDayNumber);
+
+            document.getElementById("calendar-month-year").innerHTML = monthName[month] + " " + year;
+            document.getElementById("calendar-dates").appendChild(calendar);
+
 
         function getCalendar(dayNumber, days, currentDayNumber){
             let table = document.createElement('table');
