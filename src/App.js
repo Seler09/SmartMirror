@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Calendar from './components/Calendar';
 import Clock from './components/Clock';
-import Clock2 from "./components/Clock2";
 import Weather from "./components/Weather";
 
 class App extends Component {
@@ -13,10 +12,6 @@ class App extends Component {
             showClock: false
         }
     }
-    onClick(e){
-        e.preventDefault();
-        this.setState({showCalendar: !this.state.showCalendar})
-    }
 
     handleKeyPress = (event) => {
         if(event.key === 'c'){
@@ -25,10 +20,6 @@ class App extends Component {
             this.setState({showClock: !this.state.showClock})
         }
     }
-
-
-
-
 
 
     render() {
