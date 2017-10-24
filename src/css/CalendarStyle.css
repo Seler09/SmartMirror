@@ -13,13 +13,14 @@ body{
 }
 
 #calendar-container>div{
-
     margin-bottom: 10px;
 }
+
 #calendar-header{
     border-bottom-style: solid;
     border-bottom-width: 2px;
 }
+
 #calendar-month-year{
     font-weight: 600;
     margin: 5px;

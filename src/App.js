@@ -3,6 +3,7 @@ import './App.css';
 import Calendar from './components/Calendar';
 import Clock from './components/Clock';
 import Weather from "./components/Weather";
+import News from "./components/News";
 
 class App extends Component {
     constructor() {
@@ -33,6 +34,7 @@ class App extends Component {
                     <Clock/>
                     <Calendar/>
                     <Weather/>
+                    <News/>
                 </div>
             </div>
         );
