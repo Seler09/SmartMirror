@@ -1,3 +1,16 @@
 body{
     color: white;
 }
+#weatherPicture{
+    float: left;
+}
+#weatherTemperature{
+    font-size: 100px;
+    font-weight: 300;
+}
+#weatherAdditionalInfo{
+    clear: left;
+}
+#clear{
+    clear: both;
+}

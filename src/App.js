@@ -4,6 +4,7 @@ import Calendar from './components/Calendar';
 import Clock from './components/Clock';
 import Weather from "./components/Weather";
 import News from "./components/News";
+import DatabaseSentence from "./components/DatabaseSentence";
 
 class App extends Component {
     constructor() {
@@ -33,7 +34,9 @@ class App extends Component {
                 <div>
                     <Clock/>
                     <Calendar/>
+                    <DatabaseSentence/>
                     <Weather/>
+
                     <News/>
                 </div>
             </div>

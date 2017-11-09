@@ -18,16 +18,14 @@ class Weather extends React.Component{
             icon: "Loading..."
         }
     }
-    
+
     componentDidMount(){
     let thisState = this;
 
     function weatherCoordinate() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
-            setInterval(function () {
-                weatherCoordinate();
-            },1800000); //30min
+            setInterval(function () {weatherCoordinate();},1800000); //30min
         } else {
             document.getElementById("weather").innerHTML = "Error";
         }
@@ -46,14 +44,30 @@ class Weather extends React.Component{
         });
     }
 
-     function showPosition(position) {
+    function changeLatinLetters(word){
+        let text = word.toLowerCase();
+            // console.log("Zamiana wielkości: " + text);
+        text = text.replace(/ą/,"a");
+        text = text.replace(/ć/,"c");
+        text = text.replace(/ę/,"e");
+        text = text.replace(/ł/,"l");
+        text = text.replace(/ń/,"n");
+        text = text.replace(/ó/,"o");
+        text = text.replace(/ś/,"s");
+        text = text.replace(/ź/,"z");
+        text = text.replace(/ż/,"z");
+            // console.log("Zamiana litery: " + text);
+        return text;
+
+    }
+
+    function showPosition(position) {
              axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+ position.coords.latitude +','+ position.coords.longitude + '&language=en&key=AIzaSyD0FAAUmo6A7_knlUmeok20_UAXY2BIcW0')
                  .then((findCity)=>{
              let city = findCity.data.results[3].address_components[0].long_name;
-            console.log(city);
-                     axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=67e52b10350ce3818be6550aeec51c50')
+             let cityCorrectLetters = changeLatinLetters(city);
+                     axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + cityCorrectLetters + '&APPID=67e52b10350ce3818be6550aeec51c50')
                  .then((findWeather)=>{
-                        console.log(findWeather);
                      let temperature = Math.floor(findWeather.data.main.temp - 273);
                      let windSpeed = parseInt(findWeather.data.wind.speed * 3.6, 10);
                      let humidity = parseInt(findWeather.data.main.humidity - 1, 10);
@@ -81,6 +95,9 @@ class Weather extends React.Component{
 
     render(){
         return <div id="weather">
+            <div id="weatherPicture"><img id="a" src={this.state.icon} alt="Loading..."/></div>
+            <div id="weatherTemperature">{this.state.temperature}°C</div>
+            <div id="clear"></div>
            <div id="weatherLocation">{this.state.city}</div>
             <div id="weatherAdditionalInfo">
                 <div id="weatherWindSpeed">
@@ -96,8 +113,6 @@ class Weather extends React.Component{
                     <p>{this.state.windSpeed} km/s</p>
                 </div>
             </div>
-            <div id="weatherImg"><img id="a" src={this.state.icon} alt="Loading..."/></div>
-            <div id="weatherTemperature">{this.state.temperature}°C</div>
         </div>;
     }
 }

@@ -1,0 +1,21 @@
+#news{
+    width: 100%;
+    height: 20%;
+    /*background-color: red;*/
+    position: fixed;
+    bottom: 0;
+}
+
+#newsHeader{
+    width: 80%;
+    margin: 0 auto;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+#newsBody{
+    width: 75%;
+    margin: 0 auto;
+}
+.newsTitle{
+
+}
