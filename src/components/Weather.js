@@ -46,7 +46,7 @@ class Weather extends React.Component{
 
     function changeLatinLetters(word){
         let text = word.toLowerCase();
-            // console.log("Zamiana wielkości: " + text);
+
         text = text.replace(/ą/,"a");
         text = text.replace(/ć/,"c");
         text = text.replace(/ę/,"e");
@@ -56,7 +56,7 @@ class Weather extends React.Component{
         text = text.replace(/ś/,"s");
         text = text.replace(/ź/,"z");
         text = text.replace(/ż/,"z");
-            // console.log("Zamiana litery: " + text);
+
         return text;
 
     }
@@ -66,7 +66,7 @@ class Weather extends React.Component{
                  .then((findCity)=>{
              let city = findCity.data.results[3].address_components[0].long_name;
              let cityCorrectLetters = changeLatinLetters(city);
-                     axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + cityCorrectLetters + '&APPID=67e52b10350ce3818be6550aeec51c50')
+                     axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + cityCorrectLetters + '&APPID=ad48c523de95dec0b3528e0718085f17')
                  .then((findWeather)=>{
                      let temperature = Math.floor(findWeather.data.main.temp - 273);
                      let windSpeed = parseInt(findWeather.data.wind.speed * 3.6, 10);
