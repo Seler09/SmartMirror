@@ -5,24 +5,24 @@ import Clock from './components/Clock';
 import Weather from "./components/Weather";
 import News from "./components/News";
 import DatabaseSentence from "./components/DatabaseSentence";
+import GoogleCalendar from './components/GoogleCalendar';
 
 class App extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             showCalendar: false,
-            showClock: false
+            showClock: false,
         }
     }
 
     handleKeyPress = (event) => {
-        if(event.key === 'c'){
+        if (event.key === 'c'){
             this.setState({showCalendar: !this.state.showCalendar})
-        }else if(event.key === 't'){
+        } else if (event.key === 't'){
             this.setState({showClock: !this.state.showClock})
         }
     }
-
 
     render() {
         return (
@@ -32,11 +32,11 @@ class App extends Component {
                 {this.state.showCalendar && < Calendar/>}
 
                 <div>
+                    <GoogleCalendar/>
                     <Clock/>
                     <Calendar/>
                     <DatabaseSentence/>
                     <Weather/>
-
                     <News/>
                 </div>
             </div>
