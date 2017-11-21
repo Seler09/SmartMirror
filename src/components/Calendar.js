@@ -4,10 +4,6 @@ import '../css/CalendarStyle.css';
 
 class Calendar extends React.Component {
 
-    constructor(props){
-        super(props);
-    }
-
     static getCalendar(dayNumber, days, currentDayNumber){
         let table = document.createElement('table');
         let tableRow = document.createElement('tr');
@@ -100,8 +96,10 @@ class Calendar extends React.Component {
     }
 
     componentWillReceiveProps(nextProps){
-        document.getElementById("calendar-dates").innerHTML = "";
-        Calendar.initializeCalendar();
+        if(nextProps.reload===true){
+            document.getElementById("calendar-dates").innerHTML = "";
+            Calendar.initializeCalendar();
+        }
     }
 
 
