@@ -6,6 +6,7 @@ import Weather from "./components/Weather";
 import News from "./components/News";
 import DatabaseSentence from "./components/DatabaseSentence";
 import GoogleCalendar from './components/GoogleCalendar';
+import PropTypes from 'prop-types';
 
 class App extends Component {
     constructor(props) {
@@ -13,7 +14,15 @@ class App extends Component {
         this.state = {
             showCalendar: false,
             showClock: false,
+            reloadCalendar: true
         }
+        this.handleReloadCalendar = this.handleReloadCalendar.bind(this);
+    }
+
+    handleReloadCalendar = (a) =>{
+        this.setState({
+            reloadCalendar: a,
+        });
     }
 
     handleKeyPress = (event) => {
@@ -33,8 +42,8 @@ class App extends Component {
 
                 <div>
                     <GoogleCalendar/>
-                    <Clock/>
-                    <Calendar/>
+                    <Clock handleReloadCalendar={this.handleReloadCalendar}/>
+                    <Calendar reloadCalendar={this.state.reloadCalendar} handleReloadCalendar={this.handleReloadCalendar}/>
                     <DatabaseSentence/>
                     <Weather/>
                     <News/>

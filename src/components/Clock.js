@@ -1,11 +1,16 @@
 import React from 'react';
 import '../css/ClockStyle.css';
-
+import PropTypes from 'prop-types';
 
 class Clock extends React.Component{
 
+    constructor(props){
+        super(props);
+    }
+
 
     componentDidMount(){
+        let thisState = this;
         var clock = document.getElementById('clockHM');
         let clockSeconds = document.getElementById('clockSeconds');
         function timer() {
@@ -31,8 +36,9 @@ class Clock extends React.Component{
             clock.textContent = clockTime;
             clockSeconds.textContent = clockTimeSeconds;
 
-            if(hours==="59"&&minutes==="59"&&seconds==="59"){
 
+            if(hours==="00"&&minutes==="00"&&seconds==="00"){
+                thisState.props.handleReloadCalendar(true);
             }
 
         }
@@ -40,12 +46,8 @@ class Clock extends React.Component{
             timer();
         },1000);
     }
+
     render(){
-
-
-
-
-
         return <div id="clock">
             <div id="clockHM">00:00</div>
             <div id="clockSeconds">00</div>
