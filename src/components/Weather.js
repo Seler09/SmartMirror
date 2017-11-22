@@ -15,7 +15,10 @@ class Weather extends React.Component{
             windSpeed: "Loading...",
             humidity: "Loading...",
             pressure: "Loading...",
-            icon: "Loading..."
+            icon: "Loading...",
+            humidityIcon: "",
+            windIcon: "",
+            pressureIcon: "",
         }
     }
 
@@ -38,6 +41,28 @@ class Weather extends React.Component{
         storageRef.child(img + '.png').getDownloadURL().then(function(url) {  //async
             thisState.setState({
                 icon: url
+            });
+        }).catch(function(error) {
+            // Handle any errors
+        });
+
+        storageRef.child('humidity.png').getDownloadURL().then(function(url) {  //async
+            thisState.setState({
+                humidityIcon: url
+            });
+        }).catch(function(error) {
+            // Handle any errors
+        });
+        storageRef.child('wind.png').getDownloadURL().then(function(url) {  //async
+            thisState.setState({
+                windIcon: url
+            });
+        }).catch(function(error) {
+            // Handle any errors
+        });
+        storageRef.child('pressure.png').getDownloadURL().then(function(url) {  //async
+            thisState.setState({
+                pressureIcon: url
             });
         }).catch(function(error) {
             // Handle any errors
@@ -73,12 +98,7 @@ class Weather extends React.Component{
                      let humidity = parseInt(findWeather.data.main.humidity - 1, 10);
                      let pressure = parseInt(findWeather.data.main.pressure, 10);
                      let picture = findWeather.data.weather[0].icon;
-                        // console.log("Temp: " + Math.floor(findWeather.data.main.temp - 273));
-                         // console.log("Temp: " + temperature);
-                         // console.log("Wind speed: " + windSpeed);
-                         // console.log("humidity: " + humidity + "%");
-                         // console.log("pressure: " + pressure + "hPa");
-                         // console.log("Img: " + picture);
+
                      imageLoader(picture);
                      thisState.setState({                    //here this is something difrent than this.state
                          temperature: temperature,
@@ -95,24 +115,26 @@ class Weather extends React.Component{
 
     render(){
         return <div id="weather">
+            <div id="weatherLocation">{this.state.city}</div>
+            <div id="weatherAdditionalInfo">
+                <div id="weatherWindSpeed">
+                    <img className="additionalImg" src={this.state.windIcon} alt="Loading..."/>
+                    <div className="additionalText">{this.state.windSpeed} km/s</div>
+                </div>
+                <div id="weatherHumidity">
+                    <img className="additionalImg" src={this.state.humidityIcon} alt="Loading..."/>
+                    <div className="additionalText">{this.state.humidity}%</div>
+                </div>
+                <div id="weatherPressure">
+                    <img className="additionalImg" src={this.state.pressureIcon} alt="Loading..."/>
+                    <div className="additionalText">{this.state.pressure} hPa</div>
+                </div>
+                <div id="clear"></div>
+            </div>
+
             <div id="weatherPicture"><img id="a" src={this.state.icon} alt="Loading..."/></div>
             <div id="weatherTemperature">{this.state.temperature}°C</div>
             <div id="clear"></div>
-           <div id="weatherLocation">{this.state.city}</div>
-            <div id="weatherAdditionalInfo">
-                <div id="weatherWindSpeed">
-                    <div className="weatherAdditionalInfoImg"/>
-                    <p>{this.state.humidity}%</p>
-                </div>
-                <div id="weatherHumidity">
-                    <div className="weatherAdditionalInfoImg"/>
-                    <p>{this.state.pressure}hPa</p>
-                </div>
-                <div id="weatherPressure">
-                    <div className="weatherAdditionalInfoImg"/>
-                    <p>{this.state.windSpeed} km/s</p>
-                </div>
-            </div>
         </div>;
     }
 }

@@ -1,16 +1,60 @@
-body{
+
+#weather{
+    font-family: 'Lato', sans-serif;
     color: white;
+    width: 40%;
 }
 #weatherPicture{
     float: left;
+    width: 50%;
+}
+#weatherPicture>img{
+    width: 100%;
+    height: 100%;
 }
 #weatherTemperature{
-    font-size: 100px;
+    font-size: 12vw;
     font-weight: 300;
+    width: 100%;
+    height: auto;
+    padding-top: 8%;
+}
+#weatherLocation{
+    font-weight: 600;
+    font-size: 1.7vw;
+    margin-right: 0;
+    padding-bottom: 2%;
+    padding-left: 0;
+    text-align: right;
 }
 #weatherAdditionalInfo{
-    clear: left;
+    font-weight: 600;
+    font-size: 1.7vw;
+    padding-top: 1%;
 }
+#weatherWindSpeed{
+    float: left;
+    width: 30%;
+}
+#weatherHumidity{
+    float: left;
+    width: 30%;
+}
+#weatherPressure{
+    float: left;
+    width: 30%;
+}
+
+.additionalImg{
+    float: left;
+    width: 25%;
+    height: 25%;
+    margin-right: 8%;
+}
+.additionalText{
+    padding-top: 2%;
+}
+
 #clear{
     clear: both;
 }
