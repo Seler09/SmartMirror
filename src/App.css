@@ -21,6 +21,11 @@
 .App-intro {
   font-size: large;
 }
+#one{
+  background-color: black;
+  border: 0px solid black;
+  width: 2px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

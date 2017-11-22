@@ -81,7 +81,6 @@ class App extends Component {
                 {/*{this.state.showNews && <News/>}*/}
 
 
-
                 {/*<div>*/}
 
                     <Clock handleReloadCalendar={this.handleReloadCalendar}/>

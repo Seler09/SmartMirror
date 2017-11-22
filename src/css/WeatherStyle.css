@@ -19,6 +19,7 @@
     height: auto;
     padding-top: 8%;
 }
+
 #weatherLocation{
     font-weight: 600;
     font-size: 1.7vw;
@@ -27,21 +28,23 @@
     padding-left: 0;
     text-align: right;
 }
+
 #weatherAdditionalInfo{
     font-weight: 600;
     font-size: 1.7vw;
     padding-top: 1%;
 }
+
 #weatherWindSpeed{
-    float: left;
+    float: right;
     width: 30%;
 }
 #weatherHumidity{
-    float: left;
+    float: right;
     width: 30%;
 }
 #weatherPressure{
-    float: left;
+    float: right;
     width: 30%;
 }
 

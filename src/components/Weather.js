@@ -117,17 +117,17 @@ class Weather extends React.Component{
         return <div id="weather">
             <div id="weatherLocation">{this.state.city}</div>
             <div id="weatherAdditionalInfo">
-                <div id="weatherWindSpeed">
-                    <img className="additionalImg" src={this.state.windIcon} alt="Loading..."/>
-                    <div className="additionalText">{this.state.windSpeed} km/s</div>
+                <div id="weatherPressure">
+                    <img className="additionalImg" src={this.state.pressureIcon} alt="Loading..."/>
+                    <div className="additionalText">{this.state.pressure} hPa</div>
                 </div>
                 <div id="weatherHumidity">
                     <img className="additionalImg" src={this.state.humidityIcon} alt="Loading..."/>
                     <div className="additionalText">{this.state.humidity}%</div>
                 </div>
-                <div id="weatherPressure">
-                    <img className="additionalImg" src={this.state.pressureIcon} alt="Loading..."/>
-                    <div className="additionalText">{this.state.pressure} hPa</div>
+                <div id="weatherWindSpeed">
+                    <img className="additionalImg" src={this.state.windIcon} alt="Loading..."/>
+                    <div className="additionalText">{this.state.windSpeed} km/s</div>
                 </div>
                 <div id="clear"></div>
             </div>

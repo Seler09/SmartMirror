@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Gapi from '../Gapi';
+import '../css/googleCalStyle.css';
 
 export default class GoogleCalendar extends Component {
     gapi = Gapi.getGapi();
@@ -50,10 +51,8 @@ export default class GoogleCalendar extends Component {
 
     componentWillReceiveProps(nextProps){
         if(nextProps.reload===true){
-            console.log("cos zrobil");
             this.handleLogin();
         }
-        console.log("cos zrobil2");
     }
 
     render() {
@@ -63,12 +62,12 @@ export default class GoogleCalendar extends Component {
         })
         if (this.state.logged) {
             return <div>
-                <button onClick={this.handleLogout}></button>
-                <div>{listOfEvents}</div>
+                <button id='button' onClick={this.handleLogout}/>
+                <div id='listOfEvents'>{listOfEvents}</div>
             </div>
         }
         return <div>
-            <button onClick={this.handleLogin}>Log In</button>
+            <button  id='button' onClick={this.handleLogin}>Log In</button>
         </div>
     }
 }

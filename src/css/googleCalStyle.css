@@ -1,0 +1,12 @@
+#listOfEvents{
+    font-family: 'Lato', sans-serif;
+    color: white;
+    /*font-weight: 600;*/
+    /*font-size: 20px;*/
+    font-weight: 600;
+    font-size: 1.7vw;
+}
+#button{
+    background-color: black;
+    border: 0px solid black;
+}
