@@ -58,7 +58,7 @@ export default class GoogleCalendar extends Component {
     render() {
 
         let listOfEvents = this.state.events.map((event) => {
-            return <div>{event.start.dateTime.substring(0,4)}.{event.start.dateTime.substring(5,7)}.{event.start.dateTime.substring(8,10)} {event.start.dateTime.substring(11,16)} {event.summary}</div>
+            return <div>{event.start.dateTime.substring(0,4)}.{event.start.dateTime.substring(5,7)}.{event.start.dateTime.substring(8,10)} {event.start.dateTime.substring(11,16)+'   '} {'   '+event.summary}</div>
         })
         if (this.state.logged) {
             return <div>

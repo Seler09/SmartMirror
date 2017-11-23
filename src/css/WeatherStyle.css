@@ -2,7 +2,11 @@
 #weather{
     font-family: 'Lato', sans-serif;
     color: white;
-    width: 40%;
+    width: 75%;
+    padding-top: 2%;
+    padding-right: 5%;
+    padding-top: 9%;
+    float: right;
 }
 #weatherPicture{
     float: left;
@@ -13,7 +17,7 @@
     height: 100%;
 }
 #weatherTemperature{
-    font-size: 12vw;
+    font-size: 8vw;
     font-weight: 300;
     width: 100%;
     height: auto;

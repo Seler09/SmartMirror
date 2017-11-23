@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Calendar from './components/Calendar';
 import Clock from './components/Clock';
-import Weather from "./components/Weather";
-import News from "./components/News";
-import DatabaseSentence from "./components/DatabaseSentence";
+import Weather from './components/Weather';
+import News from './components/News';
+import DatabaseSentence from './components/DatabaseSentence';
 import GoogleCalendar from './components/GoogleCalendar';
 
 class App extends Component {
@@ -72,7 +72,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <input type="text" id="one" onKeyPress={this.handleKeyPress} />
+                <input type='text' id='one' onKeyPress={this.handleKeyPress} />
                 {/*{this.state.showClock && <Clock handleReloadCalendar={this.handleReloadCalendar}/>}*/}
                 {/*{this.state.showClock && this.state.showCalendar && <Calendar reload={this.state.reload}/>}*/}
                 {/*{this.state.showClock && this.state.showGoogleCalendar  && <GoogleCalendar reload={this.state.reload}/>}*/}
@@ -82,11 +82,15 @@ class App extends Component {
 
 
                 {/*<div>*/}
-
-                    <Clock handleReloadCalendar={this.handleReloadCalendar}/>
+                <div id='leftSite'>
+                    <Clock id='clock' handleReloadCalendar={this.handleReloadCalendar}/>
                     <Calendar reload={this.state.reload}/>
-                    <GoogleCalendar reload={this.state.reload}/>
-                    <Weather/>
+                    <GoogleCalendar id='googleCalendar' reload={this.state.reload}/>
+                </div>
+                <div id='rightSite'>
+                    <Weather />
+                </div>
+                <div className='clear'/>
                     <DatabaseSentence/>
                     <News/>
                 {/*</div>*/}

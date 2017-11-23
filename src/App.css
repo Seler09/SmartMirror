@@ -27,6 +27,24 @@
   width: 2px;
 }
 
+#clock{
+  padding: 5%;
+}
+
+
+
+#leftSite{
+  float: left;
+  width: 50%;
+}
+#rightSite{
+  float: right;
+  width: 50%;
+}
+.clear{
+  clear: both;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

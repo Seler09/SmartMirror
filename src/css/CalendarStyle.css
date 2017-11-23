@@ -2,7 +2,9 @@ body{
     font-family: 'Lato', sans-serif;
 }
 #calendar-container{
-    padding: 10px;
+    padding-left: 5%;
+    padding-bottom: 1%;
+
     width: 410px;
     height: 210px;
     text-align: center;
