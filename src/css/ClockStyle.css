@@ -15,7 +15,7 @@ body{
 }
 
 #clockSeconds{
-    /*padding-top: 16px;*/
+    padding-top: 2%;
 
     float: left;
     font-weight: 500;
