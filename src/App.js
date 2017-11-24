@@ -73,28 +73,32 @@ class App extends Component {
         return (
             <div>
                 <input type='text' id='one' onKeyPress={this.handleKeyPress} />
-                {/*{this.state.showClock && <Clock handleReloadCalendar={this.handleReloadCalendar}/>}*/}
-                {/*{this.state.showClock && this.state.showCalendar && <Calendar reload={this.state.reload}/>}*/}
-                {/*{this.state.showClock && this.state.showGoogleCalendar  && <GoogleCalendar reload={this.state.reload}/>}*/}
-                {/*{this.state.showWeather && <Weather/>}*/}
-                {/*{this.state.showDatabaseSentence && <DatabaseSentence/>}*/}
-                {/*{this.state.showNews && <News/>}*/}
-
-
-                {/*<div>*/}
                 <div id='leftSite'>
-                    <Clock id='clock' handleReloadCalendar={this.handleReloadCalendar}/>
-                    <Calendar reload={this.state.reload}/>
-                    <GoogleCalendar id='googleCalendar' reload={this.state.reload}/>
+                    {this.state.showClock && <Clock id='clock' handleReloadCalendar={this.handleReloadCalendar}/>}
+                    {this.state.showClock && this.state.showCalendar && <Calendar reload={this.state.reload}/>}
+                    {this.state.showClock && this.state.showGoogleCalendar  && <GoogleCalendar id='googleCalendar' reload={this.state.reload}/>}
                 </div>
                 <div id='rightSite'>
-                    <Weather />
+                    {this.state.showWeather && <Weather/>}
                 </div>
                 <div className='clear'/>
-                    <DatabaseSentence/>
-                    <News/>
+                    {this.state.showDatabaseSentence && <DatabaseSentence/>}
+                    {this.state.showNews && <News/>}
+
+
+                {/*<div id='leftSite'>*/}
+                    {/*<Clock id='clock' handleReloadCalendar={this.handleReloadCalendar}/>*/}
+                    {/*<Calendar reload={this.state.reload}/>*/}
+                    {/*<GoogleCalendar id='googleCalendar' reload={this.state.reload}/>*/}
                 {/*</div>*/}
-            </div>
+                {/*<div id='rightSite'>*/}
+                    {/*<Weather/>*/}
+                {/*</div>*/}
+                {/*<div className='clear'/>*/}
+                    {/*<DatabaseSentence/>*/}
+                    {/*<News/>*/}
+
+            </div>  
         );
     }
 }

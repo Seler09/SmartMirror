@@ -3,9 +3,26 @@
     color: white;
     /*font-weight: 600;*/
     /*font-size: 20px;*/
+    font-weight: 500;
+    font-size: 1.7vw;
+    padding-left: 8%;
+}
+#oneEvent{
+    padding-bottom: 2%;
+}
+#header{
+    color: white;
+
     font-weight: 600;
     font-size: 1.7vw;
     padding-left: 8%;
+    text-align: center;
+    padding-right: 9%;
+    margin-left: 5%;
+    margin-right: 31%;
+    margin-bottom: 2%;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
 }
 #button{
     background-color: black;

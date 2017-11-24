@@ -12,11 +12,14 @@
     margin: 0 auto;
     border-bottom-style: solid;
     border-bottom-width: 2px;
+    font-weight: 600;
+    font-size: 1.7vw;
 }
 #newsBody{
     width: 75%;
     margin: 0 auto;
 }
 .newsTitle{
-
+    font-weight: 500;
+    font-size: 1.7vw;
 }
