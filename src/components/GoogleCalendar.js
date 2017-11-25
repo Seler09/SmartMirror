@@ -61,7 +61,7 @@ export default class GoogleCalendar extends Component {
         })
         if (this.state.logged) {
             return <div>
-                <button id='button' onClick={this.handleLogout}></button>
+                <button id='button2' onClick={this.handleLogout}>Logout from google (or click Tab to edit)</button>
                 <div id='header'>Google tasks                       </div>
                 <div id='listOfEvents'>{listOfEvents}</div>
             </div>

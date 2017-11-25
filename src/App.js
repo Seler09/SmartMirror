@@ -19,7 +19,8 @@ class App extends Component {
             showGoogleCalendar: false,
             showAll: false,
             log: false,
-            reload: false
+            reload: false,
+            editText: true
         };
         this.handleReloadCalendar = this.handleReloadCalendar.bind(this);
         this.login = this.login.bind(this);
@@ -76,6 +77,14 @@ class App extends Component {
                     this.setState({showGoogleCalendar: false});
                 }
                 break;
+            // case 'h':                                        //help to display in the future
+            //     this.setState({showCalendar: false});
+            //     this.setState({showClock: false});
+            //     this.setState({showWeather: false});
+            //     this.setState({showNews: false});
+            //     this.setState({showDatabaseSentence: false});
+            //     this.setState({showGoogleCalendar: false});
+            //     break;
             default:
                 break;
 
@@ -85,7 +94,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <input type='text' id='one' onKeyPress={this.handleKeyPress} />
+                <input type='text' id='one' onKeyPress={this.handleKeyPress}/>
                 <div id='leftSite'>
                     {this.state.showClock && <Clock id='clock' handleReloadCalendar={this.handleReloadCalendar}/>}
                     {this.state.showClock && this.state.showCalendar && <Calendar reload={this.state.reload}/>}

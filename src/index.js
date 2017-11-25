@@ -5,7 +5,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import * as firebase from 'firebase';
 import Gapi from './Gapi';
-import { AppContainer } from 'react-hot-loader';
 
 const initApp = async () => {
     await Gapi.initialize();

@@ -26,6 +26,9 @@
   border: 0px solid black;
   width: 2px;
 }
+#one:focus{
+  outline-color: black;
+}
 
 
 #clock{
