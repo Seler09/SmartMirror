@@ -25,6 +25,18 @@
     border-bottom-width: 2px;
 }
 #button{
+    font-weight: 500;
+    font-size: 1.7vw;
+    margin-top: 2%;
+    margin-left: 5%;
+    color: white;
     background-color: black;
-    border: 0px solid black;
+    border: 0px;
+    padding: 1%;
+}
+
+#button:focus{
+    background-color: white;
+    color: black;
+    outline-color: white;
 }

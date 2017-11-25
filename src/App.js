@@ -24,7 +24,8 @@ class App extends Component {
         this.handleReloadCalendar = this.handleReloadCalendar.bind(this);
         this.login = this.login.bind(this);
 
-    }
+    };
+
     login = (e) =>{
         this.setState({log: e});
     };
@@ -33,39 +34,51 @@ class App extends Component {
     };
 
     handleKeyPress = (event) => {
-        if (event.key === 'c'){
-            this.setState({showClock: true});
-            this.setState({showCalendar: !this.state.showCalendar})
-        } else if (event.key === 't'){
-            this.setState({showClock: !this.state.showClock});
-            this.setState({showGoogleCalendar: false});
-            this.setState({showCalendar: false});
-        }else if (event.key === 'w'){
-            this.setState({showWeather: !this.state.showWeather})
-        }else if (event.key === 'n'){
-            this.setState({showNews: !this.state.showNews})
-        }else if (event.key === 's'){
-            this.setState({showDatabaseSentence: !this.state.showDatabaseSentence})
-        }else if (event.key === 'g'){
-            this.setState({showClock: true});
-            this.setState({showGoogleCalendar: !this.state.showGoogleCalendar})
-        }else if (event.key === 'a'){
-            this.setState({showAll: !this.state.showAll});
-            if(this.state.showAll === false){
-                this.setState({showCalendar: true});
+        switch (event.key){
+            case 'c':
                 this.setState({showClock: true});
-                this.setState({showWeather: true});
-                this.setState({showNews: true});
-                this.setState({showDatabaseSentence: true});
-                this.setState({showGoogleCalendar: true});
-            } else{
-                this.setState({showCalendar: false});
-                this.setState({showClock: false});
-                this.setState({showWeather: false});
-                this.setState({showNews: false});
-                this.setState({showDatabaseSentence: false});
+                this.setState({showCalendar: !this.state.showCalendar});
+                break;
+            case 't':
+                this.setState({showClock: !this.state.showClock});
                 this.setState({showGoogleCalendar: false});
-            }
+                this.setState({showCalendar: false});
+                break;
+            case 'w':
+                this.setState({showWeather: !this.state.showWeather});
+                break;
+            case 'n':
+                this.setState({showNews: !this.state.showNews});
+                break;
+            case 's':
+                this.setState({showDatabaseSentence: !this.state.showDatabaseSentence});
+                break;
+            case 'g':
+                this.setState({showClock: true});
+                this.setState({showGoogleCalendar: !this.state.showGoogleCalendar});
+                break;
+            case 'a':
+                this.setState({showAll: !this.state.showAll});
+                if(this.state.showAll === false){
+                    this.setState({showCalendar: true});
+                    this.setState({showClock: true});
+                    this.setState({showWeather: true});
+                    this.setState({showNews: true});
+                    this.setState({showDatabaseSentence: true});
+                    this.setState({showGoogleCalendar: true});
+
+                }else{
+                    this.setState({showCalendar: false});
+                    this.setState({showClock: false});
+                    this.setState({showWeather: false});
+                    this.setState({showNews: false});
+                    this.setState({showDatabaseSentence: false});
+                    this.setState({showGoogleCalendar: false});
+                }
+                break;
+            default:
+                break;
+
         }
     };
 
@@ -84,21 +97,7 @@ class App extends Component {
                 <div className='clear'/>
                     {this.state.showDatabaseSentence && <DatabaseSentence/>}
                     {this.state.showNews && <News/>}
-
-
-                {/*<div id='leftSite'>*/}
-                    {/*<Clock id='clock' handleReloadCalendar={this.handleReloadCalendar}/>*/}
-                    {/*<Calendar reload={this.state.reload}/>*/}
-                    {/*<GoogleCalendar id='googleCalendar' reload={this.state.reload}/>*/}
-                {/*</div>*/}
-                {/*<div id='rightSite'>*/}
-                    {/*<Weather/>*/}
-                {/*</div>*/}
-                {/*<div className='clear'/>*/}
-                    {/*<DatabaseSentence/>*/}
-                    {/*<News/>*/}
-
-            </div>  
+            </div>
         );
     }
 }

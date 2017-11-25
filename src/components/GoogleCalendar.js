@@ -25,12 +25,11 @@ export default class GoogleCalendar extends Component {
                         timeMax: new Date(Date.now() + 86400000).toISOString(),
                     }).then(
                         (data) => {
-
-                            console.log(data);
-
-                            let i = data.result.items.length - 1;
-                            console.log(data.result.items[i].summary);
-
+                            //
+                            // console.log(data);
+                            //
+                            // let i = data.result.items.length - 1;
+                            // console.log(data.result.items[i].summary);
                             thisState.setState({
                                 events: data.result.items
                             })
@@ -62,13 +61,13 @@ export default class GoogleCalendar extends Component {
         })
         if (this.state.logged) {
             return <div>
-                <button id='button' onClick={this.handleLogout}/>
+                <button id='button' onClick={this.handleLogout}></button>
                 <div id='header'>Google tasks                       </div>
                 <div id='listOfEvents'>{listOfEvents}</div>
             </div>
         }
         return <div>
-            <button  id='button' onClick={this.handleLogin}>Log In</button>
+            <button  id='button' onClick={this.handleLogin}>SignIn / SignOut with google (Tab + Enter)</button>
         </div>
     }
 }

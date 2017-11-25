@@ -12,10 +12,10 @@ class Weather extends React.Component{
         this.state={
             temperature: "Loading...",
             city: "Loading...",
-            windSpeed: "Loading...",
-            humidity: "Loading...",
-            pressure: "Loading...",
-            icon: "Loading...",
+            windSpeed: "",
+            humidity: "",
+            pressure: "",
+            icon: "",
             humidityIcon: "",
             windIcon: "",
             pressureIcon: "",
@@ -90,6 +90,7 @@ class Weather extends React.Component{
              axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+ position.coords.latitude +','+ position.coords.longitude + '&language=en&key=AIzaSyD0FAAUmo6A7_knlUmeok20_UAXY2BIcW0')
                  .then((findCity)=>{
              let city = findCity.data.results[3].address_components[0].long_name;
+             console.log("City: ",city);
              let cityCorrectLetters = changeLatinLetters(city);
                      axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + cityCorrectLetters + '&APPID=acb3cdbc97d29c21f6e3cd6c18f7947f')
                  .then((findWeather)=>{
@@ -101,14 +102,14 @@ class Weather extends React.Component{
 
                      imageLoader(picture);
                      thisState.setState({                    //here this is something difrent than this.state
-                         temperature: temperature,
+                         temperature: temperature + '°C',
                          city: city,
-                         windSpeed: windSpeed,
-                         humidity: humidity,
-                         pressure: pressure
+                         windSpeed: windSpeed + " km/s",
+                         humidity: humidity + "%",
+                         pressure: pressure + " hPa",
                       })
                     })
-             })
+             },(error)=>{console.log("Weather error: ",error);})
      }
      weatherCoordinate();
     }
@@ -118,22 +119,22 @@ class Weather extends React.Component{
             <div id="weatherLocation">{this.state.city}</div>
             <div id="weatherAdditionalInfo">
                 <div id="weatherPressure">
-                    <img className="additionalImg" src={this.state.pressureIcon} alt="Loading..."/>
-                    <div className="additionalText">{this.state.pressure} hPa</div>
+                    <img className="additionalImg" src={this.state.pressureIcon} alt=""/>
+                    <div className="additionalText">{this.state.pressure}</div>
                 </div>
                 <div id="weatherHumidity">
-                    <img className="additionalImg" src={this.state.humidityIcon} alt="Loading..."/>
-                    <div className="additionalText">{this.state.humidity}%</div>
+                    <img className="additionalImg" src={this.state.humidityIcon} alt=""/>
+                    <div className="additionalText">{this.state.humidity}</div>
                 </div>
                 <div id="weatherWindSpeed">
-                    <img className="additionalImg" src={this.state.windIcon} alt="Loading..."/>
-                    <div className="additionalText">{this.state.windSpeed} km/s</div>
+                    <img className="additionalImg" src={this.state.windIcon} alt=""/>
+                    <div className="additionalText">{this.state.windSpeed}</div>
                 </div>
                 <div id="clear"></div>
             </div>
 
-            <div id="weatherPicture"><img id="a" src={this.state.icon} alt="Loading..."/></div>
-            <div id="weatherTemperature">{this.state.temperature}°C</div>
+            <div id="weatherPicture"><img id="a" src={this.state.icon} alt=""/></div>
+            <div id="weatherTemperature">{this.state.temperature}</div>
             <div id="clear"></div>
         </div>;
     }
