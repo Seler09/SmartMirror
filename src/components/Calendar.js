@@ -67,7 +67,7 @@ class Calendar extends React.Component {
             }
             table.appendChild(tableRow);
         }
-        return 0;
+        return table;
     }
 
     static initializeCalendar() {
@@ -84,7 +84,6 @@ class Calendar extends React.Component {
 
         let dayNumber = dayName.indexOf(firstDayName); //1
         let days = new Date(year, month+1, 0).getDate(); //30
-
         let calendar = Calendar.getCalendar(dayNumber, days, currentDayNumber);
 
         document.getElementById("calendar-month-year").innerHTML = monthName[month] + " " + year;
