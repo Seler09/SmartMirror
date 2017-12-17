@@ -92,7 +92,7 @@ class Weather extends React.Component{
              let city = findCity.data.results[3].address_components[0].long_name;
              console.log("City: ",city);
              let cityCorrectLetters = changeLatinLetters(city);
-                     axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + cityCorrectLetters + '&APPID=acb3cdbc97d29c21f6e3cd6c18f7947f')
+                     axios.get('https://api.openweathermap.org/data/2.5/weather?q=' + cityCorrectLetters + '&APPID=acb3cdbc97d29c21f6e3cd6c18f7947f')
                  .then((findWeather)=>{
                      let temperature = Math.floor(findWeather.data.main.temp - 273);
                      let windSpeed = parseInt(findWeather.data.wind.speed * 3.6, 10);

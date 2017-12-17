@@ -35,7 +35,7 @@ class App extends Component {
     };
 
     handleKeyPress = (event) => {
-        switch (event.key){
+        switch (event.key.toLowerCase()){
             case 'c':
                 this.setState({showClock: true});
                 this.setState({showCalendar: !this.state.showCalendar});
