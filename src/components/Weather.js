@@ -87,10 +87,12 @@ class Weather extends React.Component{
     }
 
     function showPosition(position) {
-             axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+ position.coords.latitude +','+ position.coords.longitude + '&language=en&key=AIzaSyD0FAAUmo6A7_knlUmeok20_UAXY2BIcW0')
+             axios.get('http://ip-api.com/json')//'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ position.coords.latitude +','+ position.coords.longitude + '&language=en&key=AIzaSyD0FAAUmo6A7_knlUmeok20_UAXY2BIcW0')
                  .then((findCity)=>{
-             let city = findCity.data.results[3].address_components[0].long_name;
+                     debugger;
+                     let city = findCity.data.city//results[3].address_components[0].long_name;
              console.log("City: ",city);
+
              let cityCorrectLetters = changeLatinLetters(city);
                      axios.get('https://api.openweathermap.org/data/2.5/weather?q=' + cityCorrectLetters + '&APPID=acb3cdbc97d29c21f6e3cd6c18f7947f')
                  .then((findWeather)=>{

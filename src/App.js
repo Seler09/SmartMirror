@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Calendar from './components/Calendar';
 import Clock from './components/Clock';
@@ -6,6 +6,9 @@ import Weather from './components/Weather';
 import News from './components/News';
 import DatabaseSentence from './components/DatabaseSentence';
 import GoogleCalendar from './components/GoogleCalendar';
+import firebase from "firebase/index";
+
+let ref;
 
 class App extends Component {
     constructor(props) {
@@ -24,18 +27,18 @@ class App extends Component {
         };
         this.handleReloadCalendar = this.handleReloadCalendar.bind(this);
         this.login = this.login.bind(this);
-
+        ref = firebase.database().ref().child('WidgetsVisibility').child(0);
     };
 
-    login = (e) =>{
+    login = (e) => {
         this.setState({log: e});
     };
-    handleReloadCalendar = (a) =>{
+    handleReloadCalendar = (a) => {
         this.setState({reload: a});
     };
 
     handleKeyPress = (event) => {
-        switch (event.key.toLowerCase()){
+        switch (event.key.toLowerCase()) {
             case 'c':
                 this.setState({showClock: true});
                 this.setState({showCalendar: !this.state.showCalendar});
@@ -60,7 +63,7 @@ class App extends Component {
                 break;
             case 'a':
                 this.setState({showAll: !this.state.showAll});
-                if(this.state.showAll === false){
+                if (this.state.showAll === false) {
                     this.setState({showCalendar: true});
                     this.setState({showClock: true});
                     this.setState({showWeather: true});
@@ -68,7 +71,7 @@ class App extends Component {
                     this.setState({showDatabaseSentence: true});
                     this.setState({showGoogleCalendar: true});
 
-                }else{
+                } else {
                     this.setState({showCalendar: false});
                     this.setState({showClock: false});
                     this.setState({showWeather: false});
@@ -93,21 +96,49 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <input type='text' id='one' onKeyPress={this.handleKeyPress}/>
-                <div id='leftSite'>
-                    {this.state.showClock && <Clock id='clock' handleReloadCalendar={this.handleReloadCalendar}/>}
-                    {this.state.showClock && this.state.showCalendar && <Calendar reload={this.state.reload}/>}
-                    {this.state.showClock && this.state.showGoogleCalendar  && <GoogleCalendar id='googleCalendar' reload={this.state.reload}/>}
-                </div>
-                <div id='rightSite'>
-                    {this.state.showWeather && <Weather/>}
-                </div>
-                <div className='clear'/>
-                    {this.state.showDatabaseSentence && <DatabaseSentence/>}
-                    {this.state.showNews && <News/>}
-            </div>
-        );
+            < div >
+            < input
+        type = 'text'
+        id = 'one'
+        onKeyPress = {this.handleKeyPress
+    }
+        />
+        < div
+        id = 'leftSite' >
+            {this.state.showClock && < Clock
+        id = 'clock'
+        handleReloadCalendar = {this.handleReloadCalendar
+    }
+        />}
+        {
+            this.state.showClock && this.state.showCalendar && < Calendar
+            reload = {this.state.reload
+        }
+            />}
+            {
+                this.state.showClock && this.state.showGoogleCalendar && < GoogleCalendar
+                id = 'googleCalendar'
+                reload = {this.state.reload
+            }
+                />}
+                < /div>
+                < div
+                id = 'rightSite' >
+                    {this.state.showWeather && < Weather / >
+            }
+            <
+                /div>
+                < div
+                className = 'clear' / >
+                    {this.state.showDatabaseSentence && < DatabaseSentence / >
+            }
+                {
+                    this.state.showNews && < News / >
+                }
+            <
+                /div>
+            )
+        ;
     }
 }
 
